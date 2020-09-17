@@ -1,18 +1,15 @@
-# skeleton-aws-lambda #
+# python-lambda-environment-details λ🔍 #
 
-[![GitHub Build Status](https://github.com/cisagov/skeleton-aws-lambda/workflows/build/badge.svg)](https://github.com/cisagov/skeleton-aws-lambda/actions)
-[![Coverage Status](https://coveralls.io/repos/github/cisagov/skeleton-aws-lambda/badge.svg?branch=develop)](https://coveralls.io/github/cisagov/skeleton-aws-lambda?branch=develop)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/skeleton-aws-lambda.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/skeleton-aws-lambda/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/skeleton-aws-lambda.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/skeleton-aws-lambda/context:python)
-[![Known Vulnerabilities](https://snyk.io/test/github/cisagov/skeleton-aws-lambda/develop/badge.svg)](https://snyk.io/test/github/cisagov/skeleton-aws-lambda)
+[![GitHub Build Status](https://github.com/cisagov/python-lambda-environment-details/workflows/build/badge.svg)](https://github.com/cisagov/python-lambda-environment-details/actions)
+[![Coverage Status](https://coveralls.io/repos/github/cisagov/python-lambda-environment-details/badge.svg?branch=develop)](https://coveralls.io/github/cisagov/python-lambda-environment-details?branch=develop)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/python-lambda-environment-details.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/python-lambda-environment-details/alerts/)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/python-lambda-environment-details.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/python-lambda-environment-details/context:python)
+[![Known Vulnerabilities](https://snyk.io/test/github/cisagov/python-lambda-environment-details/develop/badge.svg)](https://snyk.io/test/github/cisagov/python-lambda-environment-details)
 
-This is a generic skeleton project that can be used to quickly get a
-new [cisagov](https://github.com/cisagov) Python AWS Lambda GitHub
-project started.  This skeleton project contains [licensing
-information](LICENSE), as well as
-[pre-commit hooks](https://pre-commit.com) and
-[GitHub Actions](https://github.com/features/actions) configurations
-appropriate for a Python based AWS Lambda.
+This project is a simple Python lambda that is designed to output the packages
+that have been installed with [`pip`](https://pypi.org/project/pip/). This
+provides useful information on determining which packages would come
+pre-installed in the AWs Lambda environment it is run within.
 
 ## Contributing ##
 

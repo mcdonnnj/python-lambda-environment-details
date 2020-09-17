@@ -6,7 +6,7 @@ on:
     types: [prereleased, released]
 
 env:
-  ASSET_NAME: skeleton-aws-lambda.zip
+  ASSET_NAME: python-lambda-environment-details.zip
   PIP_CACHE_DIR: ~/.cache/pip
 
 jobs:

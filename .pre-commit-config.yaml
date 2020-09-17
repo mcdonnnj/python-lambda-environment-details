@@ -97,7 +97,7 @@ repos:
       # with remote states.
       # The PR
       # https://github.com/hashicorp/terraform/pull/24896
-      # is a proprosed fix to deal with `terraform validate` with proxy
+      # is a proprosed fix to dpled with `terraform validate` with proxy
       # providers (among other configurations).
       # We have decided to disable the terraform_validate hook until the issues
       # above have been resolved, which we hope will be with the release of

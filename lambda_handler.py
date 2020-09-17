@@ -5,7 +5,7 @@ import logging
 import os
 
 # cisagov Libraries
-from eal import example_aws_lambda as eal
+from pled import get_installed_packages as gip
 
 # This Lambda function expects the following environment variables to be
 # defined:
@@ -33,14 +33,10 @@ if logging_root.handlers:
 
 def handler(event, context):
     """Handle all Lambda events."""
-    eal.setup_logging(os.environ.get("log_level", "info"))
+    gip.setup_logging(os.environ.get("log_level", "info"))
 
     logging.debug(f"AWS Event was: {event}")
 
-    result = eal.do_lambda_functionality(
-        region=event["region"],
-        invocation_time=event["time"],
-        message=os.environ["message"],
-    )
+    result = gip.get_pip_packages()
 
     return result

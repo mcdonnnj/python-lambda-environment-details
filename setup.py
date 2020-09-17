@@ -33,14 +33,14 @@ def package_vars(version_file):
 setup(
     name="example-aws-lambda",
     # Versions should comply with PEP440
-    version=package_vars("eal/_version.py")["__version__"],
+    version=package_vars("pled/_version.py")["__version__"],
     description="A skeleton with an example AWS lambda to build from.",
     long_description=readme(),
     long_description_content_type="text/markdown",
     # NCATS "homepage"
     url="https://www.us-cert.gov/resources/ncats",
     # The project's main homepage
-    download_url="https://github.com/cisagov/skeleton-aws-lambda",
+    download_url="https://github.com/cisagov/python-lambda-environment-details",
     # Author details
     author="Cyber and Infrastructure Security Agency",
     author_email="ncats@hq.dhs.gov",
@@ -67,8 +67,8 @@ setup(
     # What does your project relate to?
     keywords="skeleton",
     packages=find_packages(where="."),
-    py_modules=[splitext(basename(path))[0] for path in glob("eal/*.py")],
-    install_requires=["docopt", "setuptools"],
+    py_modules=[splitext(basename(path))[0] for path in glob("pled/*.py")],
+    install_requires=["setuptools"],
     extras_require={
         "test": [
             "pre-commit",
@@ -84,5 +84,5 @@ setup(
             "pytest",
         ]
     },
-    entry_points={"console_scripts": ["eal = eal.example_aws_lambda:main"]},
+    entry_points={"console_scripts": ["gip = pled.get_installed_packages:main"]},
 )

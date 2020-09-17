@@ -7,7 +7,7 @@ set -o pipefail
 ###
 # Define the name of the Lambda zip file being produced.
 ###
-ZIP_FILE=skeleton-aws-lambda.zip
+ZIP_FILE=python-lambda-environment-details.zip
 
 ###
 # Set up the Python virtual environment.
@@ -31,7 +31,7 @@ source $VENV_DIR/bin/activate
 pip install --upgrade pip
 
 ###
-# Install local example AWS lambda (eal) and requirements.
+# Install local example AWS lambda (pled) and requirements.
 ###
 pip install --requirement requirements.txt
 
@@ -53,11 +53,11 @@ BUILD_DIR=/build
 
 ###
 # Copy all packages, including any hidden dotfiles. Also copy the
-# local eal package and the lambda handler.
+# local pled package and the lambda handler.
 ###
 cp -rT $VENV_DIR/lib/python3.8/site-packages/ $BUILD_DIR
 cp -rT $VENV_DIR/lib64/python3.8/site-packages/ $BUILD_DIR
-cp -r eal $BUILD_DIR
+cp -r pled $BUILD_DIR
 cp lambda_handler.py $BUILD_DIR
 
 ###

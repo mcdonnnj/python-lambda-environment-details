@@ -4,11 +4,11 @@ LABEL vendor="Cyber and Infrastructure Security Agency"
 
 COPY build.sh .
 
-# Files needed to install local eal module
+# Files needed to install local pled module
 COPY setup.py .
 COPY requirements.txt .
 COPY README.md .
-COPY eal ./eal
+COPY pled ./pled
 
 COPY lambda_handler.py .
 
