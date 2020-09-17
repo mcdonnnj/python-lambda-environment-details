@@ -6,7 +6,7 @@
 import argparse
 import json
 import logging
-import subprocess  # nosec
+from subprocess import CalledProcessError, check_output  # nosec
 
 from ._version import __version__
 
@@ -27,15 +27,17 @@ def setup_logging(log_level):
 
 def get_pip_packages():
     """Get the list of installed pip packages and return a dict of them."""
-    command = ["pip", "list", "--format", "json"]
-    result = subprocess.run(command, capture_output=True, shell=False)  # nosec
+    command = "pip list --format json"
 
-    if result.returncode:
-        logging.error("Problem running pip command. Return code: %d", result.returncode)
-        logging.error(result.stderr)
+    try:
+        result = check_output(command.split(" "), shell=False)  # nosec
+    except CalledProcessError as err:
+        logging.error("Problem running command '%s'", err.cmd)
+        logging.error("Process returned code '%d'", err.returncode)
+        logging.error(err.output)
         return None
 
-    return json.loads(result.stdout)
+    return json.loads(result)
 
 
 def main():
