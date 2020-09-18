@@ -1,10 +1,10 @@
 # python-lambda-environment-details λ🔍 #
 
-[![GitHub Build Status](https://github.com/cisagov/python-lambda-environment-details/workflows/build/badge.svg)](https://github.com/cisagov/python-lambda-environment-details/actions)
-[![Coverage Status](https://coveralls.io/repos/github/cisagov/python-lambda-environment-details/badge.svg?branch=develop)](https://coveralls.io/github/cisagov/python-lambda-environment-details?branch=develop)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/python-lambda-environment-details.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/python-lambda-environment-details/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/python-lambda-environment-details.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/python-lambda-environment-details/context:python)
-[![Known Vulnerabilities](https://snyk.io/test/github/cisagov/python-lambda-environment-details/develop/badge.svg)](https://snyk.io/test/github/cisagov/python-lambda-environment-details)
+[![GitHub Build Status](https://github.com/mcdonnnj/python-lambda-environment-details/workflows/build/badge.svg)](https://github.com/mcdonnnj/python-lambda-environment-details/actions)
+[![Coverage Status](https://coveralls.io/repos/github/mcdonnnj/python-lambda-environment-details/badge.svg?branch=develop)](https://coveralls.io/github/mcdonnnj/python-lambda-environment-details?branch=develop)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/mcdonnnj/python-lambda-environment-details.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/mcdonnnj/python-lambda-environment-details/alerts/)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/mcdonnnj/python-lambda-environment-details.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/mcdonnnj/python-lambda-environment-details/context:python)
+[![Known Vulnerabilities](https://snyk.io/test/github/mcdonnnj/python-lambda-environment-details/develop/badge.svg)](https://snyk.io/test/github/mcdonnnj/python-lambda-environment-details)
 
 This project is a simple Python lambda that is designed to output the packages
 that have been installed with [`pip`](https://pypi.org/project/pip/). This

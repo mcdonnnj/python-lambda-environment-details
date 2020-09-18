@@ -3,6 +3,6 @@ version: '3.2'
 services:
   build_example_aws_lambda:
     build: .
-    image: 'cisagov/build_example_aws_lambda'
+    image: 'mcdonnnj/build_pled_lambda'
     volumes:
       - .:/output
