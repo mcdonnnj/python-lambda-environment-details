@@ -11,7 +11,7 @@ from unittest.mock import patch
 import pytest
 
 # cisagov Libraries
-from pled import get_installed_packages as gip
+from pled import cli as gip
 
 log_levels = (
     "debug",

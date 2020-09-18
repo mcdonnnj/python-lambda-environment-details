@@ -1,14 +1,13 @@
-#!/usr/bin/env python3
-
 """get_installed_packages: Get information about packages installed with pip."""
 
 # Standard Python Libraries
-import argparse
 import json
 import logging
 from subprocess import CalledProcessError, check_output  # nosec
 
-from ._version import __version__
+# Third-Party Libraries
+from boto3 import client as boto3_client
+from botocore.exceptions import ClientError
 
 
 def setup_logging(log_level):
@@ -23,6 +22,20 @@ def setup_logging(log_level):
             "Possible values are debug, info, warning, error, and critical."
         )
         return 1
+
+
+def upload_to_s3_bucket(bucket, key, data):
+    """Upload the provided data to a given S3 bucket as the given key."""
+    s3_client = boto3_client("s3")
+    try:
+        s3_client.put_object(
+            Body=json.dumps(data).encode("utf-8"), Bucket=bucket, Key=key
+        )
+    except ClientError as put_error:
+        logging.error(
+            "Unable to put object to S3 bucket '%s' with key '%s'", bucket, key
+        )
+        logging.error(put_error)
 
 
 def get_pip_packages():
@@ -40,38 +53,11 @@ def get_pip_packages():
     return json.loads(result)
 
 
-def main():
-    """Display package information."""
-    arg_parser = argparse.ArgumentParser(
-        description="Get details about pip installed packages."
-    )
-    arg_parser.add_argument("--version", action="version", version=__version__)
-    arg_parser.add_argument(
-        "--log-level",
-        choices=["debug", "info", "warning", "error", "critical"],
-        default="warning",
-        dest="log_level",
-        help="Log level to use.",
-        metavar="LEVEL",
-        nargs="?",
-        type=str,
-    )
-
-    args = arg_parser.parse_args()
-
-    # Set up logging
-    setup_logging(args.log_level)
-
+def get_information(s3_bucket=None, s3_key="pip_package_list.json"):
+    """Provide a main entrypoint to the functionality of this module."""
     pip_list = get_pip_packages()
 
-    if pip_list:
-        print(json.dumps(pip_list, sort_keys=True, indent=4))
+    if s3_bucket:
+        upload_to_s3_bucket(s3_bucket, s3_key, pip_list)
 
-    # Stop logging and clean up
-    logging.shutdown()
-
-    return 0 if pip_list else -1
-
-
-if __name__ == "__main__":
-    main()
+    return pip_list

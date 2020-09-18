@@ -37,6 +37,11 @@ def handler(event, context):
 
     logging.debug(f"AWS Event was: {event}")
 
-    result = gip.get_pip_packages()
+    if not os.environ.get("s3_key", None):
+        result = gip.get_information(s3_bucket=os.environ.get("s3_bucket", None))
+    else:
+        result = gip.get_information(
+            s3_bucket=os.environ.get("s3_bucket", None), s3_key=os.environ["s3_key"]
+        )
 
     return result

@@ -31,10 +31,10 @@ def package_vars(version_file):
 
 
 setup(
-    name="example-aws-lambda",
+    name="python-lambda-environment-details",
     # Versions should comply with PEP440
     version=package_vars("pled/_version.py")["__version__"],
-    description="A skeleton with an example AWS lambda to build from.",
+    description="A simple AWS Lambda to get pip information.",
     long_description=readme(),
     long_description_content_type="text/markdown",
     # NCATS "homepage"
@@ -42,8 +42,8 @@ setup(
     # The project's main homepage
     download_url="https://github.com/mcdonnnj/python-lambda-environment-details",
     # Author details
-    author="Cyber and Infrastructure Security Agency",
-    author_email="ncats@hq.dhs.gov",
+    author="Nicholas McDonnell",
+    author_email="mcdonnnj@gmail.com",
     license="License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
@@ -65,10 +65,10 @@ setup(
     ],
     python_requires=">=3.6",
     # What does your project relate to?
-    keywords="skeleton",
+    keywords="lambda",
     packages=find_packages(where="."),
     py_modules=[splitext(basename(path))[0] for path in glob("pled/*.py")],
-    install_requires=["setuptools"],
+    install_requires=["boto3", "botocore", "setuptools"],
     extras_require={
         "test": [
             "pre-commit",
@@ -84,5 +84,5 @@ setup(
             "pytest",
         ]
     },
-    entry_points={"console_scripts": ["gip = pled.get_installed_packages:main"]},
+    entry_points={"console_scripts": ["gip = pled.cli:main"]},
 )
